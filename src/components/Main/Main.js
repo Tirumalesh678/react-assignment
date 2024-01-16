@@ -1,7 +1,34 @@
 import React, { useEffect, useState } from 'react'
 import './Main.css'
 const Main = () => {
-    const arr=['Tirumalesh', 'hemanth','Naveen','shadakshari','Nishchal'];
+    const arr=['Tirumalesh', 'hemanth','Naveen','shadakshari','Nishchal',"John",
+    "Jane",
+    "Alice",
+    "Bob",
+    "Charlie",
+    "David",
+    "Eva",
+    "Frank",
+    "Grace",
+    "Henry",
+    "Isabel",
+    "Jack",
+    "Katie",
+    "Liam",
+    "Mia",
+    "Noah",
+    "Olivia",
+    "Peter",
+    "Quinn",
+    "Rachel",
+    "Samuel",
+    "Taylor",
+    "Ursula",
+    "Vincent",
+    "Wendy",
+    "Xander",
+    "Yara",
+    "Zane",];
     const [items,setItems]=useState(arr);
     const [selectedItems,setSelectedItems]=useState([]);
     const [inputValue,setInputValue]=useState('');
@@ -20,6 +47,7 @@ const Main = () => {
         setSelectedItems([...selectedItems,item]);
         setItems(items.filter((i)=>i!==item));
         setInputValue('');
+        setHighlightedItem(null);
     }
 
 
@@ -53,29 +81,35 @@ const Main = () => {
     
   return (
     <div className='main'>
-      <input
-        className="appearance-none border-2 border-gray-400 rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        type='text'
-        value={inputValue}
-        onChange={handleInputChange}
-        placeholder='Type here....'
-      />
-      <div className='chips'>
-        {
-            selectedItems.map((item)=>(
-                <div key={item} className={`flex items-center border bg-${highlightedItem=== item  ? 'blue-500' : 'gray-200'} text-${highlightedItem=== item ? 'white' : 'gray-700'} rounded-full px-3 py-1 mr-2 mb-2`}
-                /*onClick={()=>handleChipRemove(item)}*/>
-                    {item}
-                    <span onClick={()=>handleChipRemove(item)}>X</span>
-                </div>
-            ))
-        }
+    <div className="mb-4 mx-4">
+      <div className="rounded p-2 border flex items-center">
+        {selectedItems.map((item) => (
+          <div key={item} className={`flex items-center border bg-${highlightedItem=== item  ? 'blue-500' : 'gray-800'}  rounded-full px-3 py-1 mr-2 mb-2`}>
+            {item}
+            <button
+              className="ml-2 text-black font-bold"
+              onClick={() => handleChipRemove(item)}
+            >
+              X
+            </button>
+          </div>
+        ))}
+        <input
+          type="text"
+          value={inputValue}
+          onChange={handleInputChange}
+          placeholder="Add user..."
+          className="ml-2 flex-grow  rounded p-2"
+        />
       </div>
-      <ul>
+    </div>
+      {
+        inputValue&&
+        <ul>
         {
-            items.
-            filter((item)=>item.toLowerCase().includes(inputValue.toLowerCase())).
-            map((item)=>(
+            items
+            .filter((item)=>item.toLowerCase().includes(inputValue.toLowerCase()))
+            .map((item)=>(
                 <li 
                 className="flex items-center justify-center border border-gray-300 rounded-full px-3 py-1 mb-2"
                 key={item} onClick={()=>handleItemClick(item)}>
@@ -84,6 +118,7 @@ const Main = () => {
             ))
         }
       </ul>
+      }
       
     </div>
   )
