@@ -2,8 +2,12 @@
     background-color: #007bff;
     color: #fff;
     padding: 1em;
-    height: 80px;
+    height: 60px;
     position: sticky;
     top: 0;
+    text-align:center;
     z-index: 1000; /* Add a high z-index to keep the header on top */;
+}
+.h2{
+    text.align:center;
 }

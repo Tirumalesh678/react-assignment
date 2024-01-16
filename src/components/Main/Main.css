@@ -3,3 +3,48 @@
     padding: 1em;
     overflow-y: auto; /* Allow main content to be scrollable */
 }
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    cursor: pointer;
+    padding: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 4px;
+  }
+  
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .chip {
+    background-color: #f8f9fa;
+    color: #495057;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .span {
+    margin-left: 8px;
+    cursor: pointer;
+  }
+  
+  .chip.highlighted {
+    background-color: #007bff;
+    color: #fff;
+  }
