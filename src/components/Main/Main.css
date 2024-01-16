@@ -2,6 +2,8 @@
     flex: 1;
     padding: 1em;
     overflow-y: auto; /* Allow main content to be scrollable */
+    margin-left: 10rem; /* Left margin */
+    margin-right: 10rem; /* Right margin */
 }
 
 input {
@@ -13,6 +15,8 @@ input {
   ul {
     list-style: none;
     padding: 0;
+    margin-left: 20rem; /* Left margin */
+    margin-right: 20rem; /* Right margin */
   }
   
   li {

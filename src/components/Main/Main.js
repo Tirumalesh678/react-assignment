@@ -24,7 +24,7 @@ const Main = () => {
 
 
     const handleBackSpace=()=>{
-        if(inputValue===''&&selectedItems.length>0&&highlightedItem===null)
+        if(inputValue===''&&selectedItems.length>0&&highlightedItem==null)
         {
             const lastItem=selectedItems[selectedItems.length-1];
             setHighlightedItem(lastItem);
@@ -44,9 +44,9 @@ const Main = () => {
                 handleBackSpace();
             }
         };
-        document.addEventListener('keydown',handleBackSpace);
+        document.addEventListener('keydown',handleKeyDown);
         return()=>{
-            document.removeEventListener('keydown',handleBackSpace);
+            document.removeEventListener('keydown',handleKeyDown);
         };
     },[selectedItems,highlightedItem,inputValue]);
 
@@ -54,6 +54,7 @@ const Main = () => {
   return (
     <div className='main'>
       <input
+        className="appearance-none border-2 border-gray-400 rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         type='text'
         value={inputValue}
         onChange={handleInputChange}
@@ -62,7 +63,7 @@ const Main = () => {
       <div className='chips'>
         {
             selectedItems.map((item)=>(
-                <div key={item} className={`chip ${highlightedItem=== item ? 'highlighted':''}`}
+                <div key={item} className={`flex items-center border bg-${highlightedItem=== item  ? 'blue-500' : 'gray-200'} text-${highlightedItem=== item ? 'white' : 'gray-700'} rounded-full px-3 py-1 mr-2 mb-2`}
                 /*onClick={()=>handleChipRemove(item)}*/>
                     {item}
                     <span onClick={()=>handleChipRemove(item)}>X</span>
@@ -75,7 +76,9 @@ const Main = () => {
             items.
             filter((item)=>item.toLowerCase().includes(inputValue.toLowerCase())).
             map((item)=>(
-                <li key={item} onClick={()=>handleItemClick(item)}>
+                <li 
+                className="flex items-center justify-center border border-gray-300 rounded-full px-3 py-1 mb-2"
+                key={item} onClick={()=>handleItemClick(item)}>
                     {item}
                 </li>
             ))
