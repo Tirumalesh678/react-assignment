@@ -1,4 +1,10 @@
 .footer{
-    background-color: #f8f9fa;
+    background-color: #28a745;
+    color: #fff;
     padding: 1em;
+    margin-top: auto;
+    height: 60px;
+    position: sticky;
+    bottom: 0;
+    z-index: 1000; /* Add a high z-index to keep the footer on top */
 }

@@ -1,0 +1,5 @@
+.main{
+    flex: 1;
+    padding: 1em;
+    overflow-y: auto; /* Allow main content to be scrollable */
+}
